@@ -1,14 +1,14 @@
 <template>
-  <div class="expansion">
+  <span>
     <button @click="isExpanded = !isExpanded" class="expansion-button">
       {{ header }}
-      <div v-if="!isExpanded" class="arrow">&#187;</div>
-      <div v-else class="arrow">&#171;</div>
+      <span v-if="!isExpanded" class="arrow">&#187;</span>
+      <span v-else class="arrow">&#171;</span>
     </button>
-    <div v-if="isExpanded" class="expansion-text">
+    <span v-if="isExpanded" class="expanded-text">
       <slot></slot>
-    </div>
-  </div>
+    </span>
+  </span>
 </template>
 
 <script>
@@ -30,24 +30,17 @@ export default {
 <style>
 .arrow {
   color: grey;
-  display: inline-block;
 }
 
-.expansion {
-  display: inline-block;
+.expanded-text {
+  background-color: #FDFD96;
+  border-radius: 4px;
 }
 
 .expansion-button {
   border: 1px solid #ddd;
   border-radius: 3px;
   cursor: pointer;
-  display: inline-block;
   margin: 0 2px 0;
-}
-
-.expansion-text {
-  background-color: #FDFD96;
-  border-radius: 4px;
-  display: inline-block;
 }
 </style>
